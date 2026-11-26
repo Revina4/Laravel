@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th style="width: 60px">No</th>
-                        <th>Foto</th>
+                        <th style="width: 90px">Foto</th>
                         <th>Nama</th>
                         <th>Kategori</th>
                         <th>Harga</th>
@@ -30,7 +30,8 @@
                             <td>
                                 @if ($item->foto)
                                     <img src="{{ asset('uploads/produk/' . $item->foto) }}"
-                                         alt="{{ $item->nama }}" class="thumb">
+                                         alt="{{ $item->nama }}"
+                                         style="width: 64px; height: 64px; object-fit: cover; border-radius: 10px; display: block;">
                                 @else
                                     <span class="text-muted">-</span>
                                 @endif
@@ -77,5 +78,5 @@
 </div>
 
 <div class="d-flex justify-content-center mt-3">
-    {{ $produk->links() }}
+    {{ $produk->links('pagination::bootstrap-4') }}
 </div>

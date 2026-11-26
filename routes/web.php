@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminKategoriController;
 use App\Http\Controllers\AdminProdukController;
 use App\Http\Controllers\AdminTransaksiController;
+use App\Http\Middleware\AdminOnly;
 use App\Models\Produk;
 use App\Models\Kategori;
 use App\Models\Transaksi;
@@ -21,14 +22,15 @@ Route::post('/login/do', [AdminAuthController::class, 'doLogin'])
 Route::get('/logout', [AdminAuthController::class, 'logout'])
     ->middleware('auth');
 
-// DASHBOARD
+// HALAMAN AWAL
 Route::get('/', function () {
     return redirect('/admin/dashboard');
 })->middleware('auth');
 
-// ADMIN
+// SEMUA USER YANG LOGIN
 Route::prefix('/admin')->middleware('auth')->group(function () {
 
+    // DASHBOARD
     Route::get('/dashboard', function () {
         $data = [
             'total_produk'         => Produk::count(),
@@ -47,25 +49,17 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
         return view('admin.layouts.wrapper', $data);
     });
 
-    // USER
-    Route::resource('/user', AdminUserController::class);
-
-    // KATEGORI
-    Route::resource('/kategori', AdminKategoriController::class);
-
-    // PRODUK
-    Route::resource('/produk', AdminProdukController::class);
-
     // TRANSAKSI
     Route::resource('/transaksi', AdminTransaksiController::class);
-
-    // HAPUS ITEM DI TRANSAKSI
     Route::delete('/transaksi-detail/{id}', [AdminTransaksiController::class, 'destroyDetail']);
-
-    // STRUK
     Route::get('/transaksi/{id}/struk', [AdminTransaksiController::class, 'struk']);
     Route::get('/transaksi/{id}/struk/pdf', [AdminTransaksiController::class, 'strukPdf']);
-
-    // BAYAR (total bayar & kembalian)
     Route::post('/transaksi/{id}/bayar', [AdminTransaksiController::class, 'bayar']);
+
+    // HANYA ADMIN
+    Route::middleware(AdminOnly::class)->group(function () {
+        Route::resource('/user', AdminUserController::class);
+        Route::resource('/kategori', AdminKategoriController::class);
+        Route::resource('/produk', AdminProdukController::class);
+    });
 });

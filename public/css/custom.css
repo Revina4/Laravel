@@ -1,0 +1,262 @@
+:root {
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --pink: #f472b6;
+    --pink-dark: #db2777;
+    --lilac: #ede9fe;
+    --blush: #fce7f3;
+    --bg: #fbf8ff;
+    --text: #2e2347;
+    --muted: #8b7fa6;
+    --border: #f0e9fb;
+    --grad: linear-gradient(135deg, #8b5cf6, #ec4899);
+}
+
+body,
+.content-wrapper {
+    font-family: 'Inter', 'Source Sans Pro', sans-serif;
+    color: var(--text);
+}
+
+.content-wrapper { background: var(--bg) !important; }
+
+a { color: var(--primary-dark); }
+a:hover { color: var(--pink-dark); }
+
+/* ---------- Navbar ---------- */
+.main-header {
+    border-bottom: none !important;
+    box-shadow: 0 1px 12px rgba(139, 92, 246, .08);
+}
+.main-header .nav-link { color: var(--muted); }
+.user-chip {
+    background: var(--blush);
+    color: var(--pink-dark);
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+/* ---------- Sidebar (pastel) ---------- */
+.main-sidebar,
+.main-sidebar.sidebar-dark-primary {
+    background: linear-gradient(180deg, #f5f3ff 0%, #fdf2f8 100%) !important;
+    border-right: 1px solid var(--border);
+    box-shadow: none !important;
+}
+.brand-link {
+    border-bottom: 1px solid var(--border) !important;
+    padding: 1rem 1.25rem !important;
+}
+.brand-link .brand-text {
+    color: var(--primary-dark) !important;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: .3px;
+}
+.nav-sidebar > .nav-item > .nav-link {
+    color: #6b5b95 !important;
+    border-radius: 12px;
+    margin: 0 6px 4px;
+    padding: .65rem .9rem;
+}
+.nav-sidebar > .nav-item > .nav-link:hover {
+    background: rgba(139, 92, 246, .1) !important;
+    color: var(--primary-dark) !important;
+}
+.nav-sidebar > .nav-item > .nav-link.active {
+    background: var(--grad) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 16px rgba(139, 92, 246, .35);
+}
+.nav-sidebar .nav-icon { margin-right: .6rem; }
+
+/* ---------- Judul halaman ---------- */
+.page-head { margin-bottom: 1.2rem; }
+.page-head h4 { font-weight: 700; margin-bottom: .15rem; color: var(--text); }
+.page-head p { color: var(--muted); margin-bottom: 0; }
+
+/* ---------- Card ---------- */
+.card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(139, 92, 246, .08);
+    overflow: hidden;
+}
+.form-card { max-width: 720px; }
+
+/* ---------- Tombol ---------- */
+.btn { border-radius: 12px; font-weight: 500; }
+.btn-primary {
+    background: var(--grad);
+    border-color: transparent;
+    color: #fff;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background: var(--grad);
+    border-color: transparent;
+    color: #fff;
+    filter: brightness(.94);
+}
+.btn-soft-info { background: var(--lilac); color: #6d28d9; border: none; }
+.btn-soft-info:hover { background: #ddd6fe; color: #5b21b6; }
+.btn-soft-danger { background: var(--blush); color: #be185d; border: none; }
+.btn-soft-danger:hover { background: #fbcfe8; color: #9d174d; }
+.btn-soft-gray { background: #f5f3ff; color: #6b5b95; border: none; }
+.btn-soft-gray:hover { background: #ede9fe; color: var(--primary-dark); }
+
+/* ---------- Form ---------- */
+label { font-weight: 600; font-size: .85rem; color: #4c3a75; }
+.form-control {
+    border-radius: 12px;
+    border: 1px solid #e9e1f8;
+    height: calc(2.5rem + 2px);
+}
+textarea.form-control { height: auto; }
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, .18);
+}
+.foto-preview {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: .6rem;
+}
+
+/* ---------- Tabel ---------- */
+.table-modern { margin-bottom: 0; }
+.table-modern th {
+    background: #faf5ff;
+    color: #7c6a9c;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-top: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: .9rem 1rem;
+}
+.table-modern td {
+    padding: .85rem 1rem;
+    vertical-align: middle;
+    border-top: 1px solid var(--border);
+}
+.table-modern tbody tr:hover { background: #fdf8ff; }
+.thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+/* ---------- Badge ---------- */
+.badge { border-radius: 8px; padding: .4em .7em; font-weight: 600; }
+.badge-soft-indigo { background: var(--lilac); color: #6d28d9; }
+.badge-soft-gray { background: #f5f3ff; color: #6b5b95; }
+.badge-soft-success { background: #dcfce7; color: #15803d; }
+.badge-soft-danger { background: var(--blush); color: #be185d; }
+
+/* ---------- Kartu statistik dashboard ---------- */
+.stat-card .card-body { padding: 1.3rem; }
+.stat-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+.ic-indigo { background: var(--lilac); color: #7c3aed; }
+.ic-amber  { background: var(--blush); color: #db2777; }
+.ic-green  { background: #f3e8ff; color: #a855f7; }
+.ic-rose   { background: #ffe4f1; color: #ec4899; }
+.stat-label { color: var(--muted); font-size: .85rem; }
+.stat-value { font-size: 1.45rem; font-weight: 700; line-height: 1.2; color: var(--text); }
+
+/* ---------- Ringkasan kasir ---------- */
+.total-box { font-size: 1.9rem; font-weight: 700; color: var(--primary-dark); }
+
+/* ---------- Alert ---------- */
+.alert-soft { border: none; border-radius: 14px; }
+.alert-success { background: #f0fdf4; color: #166534; }
+.alert-danger { background: #fdf2f8; color: #9d174d; }
+
+/* ---------- Pagination ---------- */
+.page-link { color: var(--primary-dark); border-color: var(--border); }
+.page-link:hover { color: var(--pink-dark); background: #faf5ff; }
+.page-item.active .page-link {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* ---------- Footer ---------- */
+.main-footer { background: transparent; border-top: none; }
+
+/* ---------- Login & Register ---------- */
+.auth-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ede9fe, #fce7f3);
+    padding: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+}
+.auth-card { width: 100%; max-width: 420px; }
+.auth-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: var(--grad);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin: 0 auto .8rem;
+}
+
+/* ---------- Toko (pembeli) ---------- */
+.toko-body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+}
+.toko-nav { box-shadow: 0 1px 12px rgba(139, 92, 246, .08); }
+.toko-nav .navbar-brand { font-weight: 700; color: var(--primary-dark); }
+.toko-nav .nav-link.active { color: var(--pink-dark) !important; font-weight: 600; }
+
+.produk-card .produk-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    background: #f5f3ff;
+}
+.produk-noimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d8c8f5;
+    font-size: 2.4rem;
+}
+.produk-harga { color: var(--pink-dark); font-weight: 700; font-size: 1.05rem; }
+.cod-box {
+    background: var(--lilac);
+    color: #6d28d9;
+    border-radius: 14px;
+    padding: .75rem 1rem;
+    font-weight: 600;
+}

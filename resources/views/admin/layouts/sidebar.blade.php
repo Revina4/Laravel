@@ -19,29 +19,33 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="/admin/user"
-                       class="nav-link {{ request()->is('admin/user*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>User</p>
-                    </a>
-                </li>
+                @if (auth()->user()->role === 'admin')
 
-                <li class="nav-item">
-                    <a href="/admin/kategori"
-                       class="nav-link {{ request()->is('admin/kategori*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>Kelola Kategori</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/user"
+                           class="nav-link {{ request()->is('admin/user*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a href="/admin/produk"
-                       class="nav-link {{ request()->is('admin/produk*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-box"></i>
-                        <p>Kelola Produk</p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/admin/kategori"
+                           class="nav-link {{ request()->is('admin/kategori*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>Kelola Kategori</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/admin/produk"
+                           class="nav-link {{ request()->is('admin/produk*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-box"></i>
+                            <p>Kelola Produk</p>
+                        </a>
+                    </li>
+
+                @endif
 
                 <li class="nav-item">
                     <a href="/admin/transaksi"
